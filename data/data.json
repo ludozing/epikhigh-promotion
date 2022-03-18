@@ -1,0 +1,59 @@
+{
+    "musics": [
+        {
+            "no" : "1", "title" : "Here + Prequel",
+            "url" : "https://www.youtube.com/watch?v=juG3PBxrsfM",
+            "lyric" : "/lyrics/track01+02.txt"
+        },
+        {
+            "no" : "2", "title" : "Super Rare (Feat. Wonstein, pH-1)",
+            "url" : "https://www.youtube.com/watch?v=1xFrMzBvY9o",
+            "lyric" : "/lyrics/track03.txt"
+        },
+        {
+            "no" : "3", "title" : "그래서 그래 (Feat. 윤하)",
+            "url" : "https://www.youtube.com/watch?v=l7EQ_uoNQBE",
+            "lyric" : "/lyrics/track04.txt"
+        },
+        {
+            "no" : "4", "title" : "BRB",
+            "url" : "https://www.youtube.com/watch?v=eWDa2F4GwSM",
+            "lyric" : "/lyrics/track05.txt"
+        },
+        {
+            "no" : "5", "title" : "I Hated Myself (Tablo's Word)",
+            "url" : "https://www.youtube.com/watch?v=_3sE14z29is",
+            "lyric" : "/lyrics/track06.txt"
+        },
+        {
+            "no" : "6", "title" : "비 오는 날 듣기 좋은 노래 (Rain Song) (Feat. Colde)",
+            "url" : "https://www.youtube.com/watch?v=0CS8qFgFHxU",
+            "lyric" : "/lyrics/track07.txt"
+        },
+        {
+            "no" : "7", "title" : "Rich Kids Anthem (Feat. 이하이)",
+            "url" : "https://www.youtube.com/watch?v=jwx9aiKr77I",
+            "lyric" : "/lyrics/track08.txt"
+        },
+        {
+            "no" : "8", "title" : "Face ID (Feat. GIRIBOY, Sik-K, JUSTHIS)",
+            "url" : "https://www.youtube.com/watch?v=xBsHAyB73Rk",
+            "lyric" : "/lyrics/track09.txt"
+        },
+        {
+            "no" : "9", "title" : "Piano For Sale",
+            "url" : "https://www.youtube.com/watch?v=URKLTryA1wM",
+            "lyric" : "/lyrics/track10.txt"
+        },
+        {
+            "no" : "10", "title" : "가족관계증명서 (Feat. 김필)",
+            "url" : "https://www.youtube.com/watch?v=LraS48NP99s",
+            "lyric" : "/lyrics/track11.txt"
+        },
+        {
+            "no" : "11", "title" : "Champagne",
+            "url" : "https://www.youtube.com/watch?v=3YBqr5CrJLM",
+            "lyric" : "/lyrics/track12.txt"
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPIK HIGH IS HERE</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="" defer></script>
+</head>
+<body>
+    <div id="viewFrame">
+        <div class="albums falling" id="album1"><img src="images/album1.jpg" alt="#"></div>
+        <div class="albums falling" id="album2"><img src="images/album2.jpg" alt="#"></div>
+        <div class="albums falling" id="album3"><img src="images/album3.jpg" alt="#"></div>
+        <div class="albums falling" id="album4"><img src="images/album4.jpg" alt="#"></div>
+        <div class="albums falling" id="album5"><img src="images/album5.jpg" alt="#"></div>
+        <div class="albums falling" id="album6"><img src="images/album6.jpg" alt="#"></div>
+        <div class="albums falling" id="album7"><img src="images/album7.jpg" alt="#"></div>
+        <div class="albums falling" id="album8"><img src="images/album8.jpg" alt="#"></div>
+        <div class="albums falling" id="album9"><img src="images/album9.jpg" alt="#"></div>
+        <div class="albums falling" id="album10"><img src="images/album10.jpg" alt="#"></div>
+        <div class="albums" id="album11">
+            <div>
+                <img class="albumLogo" src="images/albumlogo.jpg" alt="Epik High is HERE">
+                <img src="images/album11.jpg" alt="#">
+                <a href="/main">ENTER</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        let count = 0;
+        let albums = document.querySelectorAll('.albums')
+        let dropImgs
+        function dropImg(){
+            if(count<albums.length-1){
+                albums[count].classList.add('fall');
+                count = count + 1;
+            }else {
+                clearInterval(dropImgs);
+                albums[10].classList.add('on');
+            }
+        }
+        window.onload = function(){
+            dropImgs = setInterval(dropImg,800);
+        }
+    </script>
+</body>
+</html>
