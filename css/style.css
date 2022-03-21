@@ -285,11 +285,11 @@ body {
   margin-bottom: 40px;
 }
 
-#wrap .section#epikhighInfo > div {
+#wrap #epikhighInfo > div {
   padding: 0;
 }
 
-#wrap .section#epikhighInfo .infoArea {
+#wrap #epikhighInfo .infoArea {
   width: 100%;
   height: 80%;
   display: -webkit-box;
@@ -300,47 +300,47 @@ body {
           justify-content: space-between;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) {
   width: 65%;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table {
   width: 80%;
   height: 100%;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table .snsIcon {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table .snsIcon {
   width: 20px;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table tr:first-child {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table tr:first-child {
   height: 30%;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table tr:first-child td {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table tr:first-child td {
   border: none;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table tr:first-child img {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table tr:first-child img {
   width: 200px;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table tr th {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table tr th {
   background-color: var(--main-color);
   border: 1px solid var(--main-color);
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(1) table tr td {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(1) table tr td {
   border-bottom: 1px solid #ccc;
   text-align: center;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(2) {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(2) {
   width: 35%;
   height: 100%;
 }
 
-#wrap .section#epikhighInfo .infoArea .halfArea:nth-child(2) .profilePic {
+#wrap #epikhighInfo .infoArea .halfArea:nth-child(2) .profilePic {
   width: 100%;
   height: 100%;
   background-image: url(/images/epikhigh1.jpg);
@@ -348,14 +348,118 @@ body {
   background-size: cover;
 }
 
-#wrap .section#discography {
+#wrap #songs .songFrame {
+  height: 80%;
+  position: relative;
+}
+
+#wrap #songs .songFrame button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  opacity: 0.5;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  cursor: pointer;
+}
+
+#wrap #songs .songFrame button i {
+  font-size: 20px;
+}
+
+#wrap #songs .songFrame button.prevBtn {
+  left: -50px;
+}
+
+#wrap #songs .songFrame button.nextBtn {
+  right: -50px;
+}
+
+#wrap #songs .songFrame button.off {
+  display: none;
+}
+
+#wrap #songs .songFrame .songInfoArea {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#wrap #songs .songFrame .songInfoArea .songInfoGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+#wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .musicTitle {
+  background-color: var(--dark-color);
+  color: #fff;
+  padding: 0 20px;
+  position: relative;
+}
+
+#wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .musicTitle span {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 15px solid var(--bg-color);
+  border-right: 0px solid transparent;
+  border-left: 15px solid transparent;
+}
+
+#wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .videoArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .lyricArea {
+  overflow: auto;
+  background-color: #ccc;
+  height: 405px;
+  width: 380px;
+  padding: 10px 20px;
+}
+
+#wrap #discography {
   position: relative;
   padding: 0 0;
   overflow: hidden;
   height: 1100vw;
 }
 
-#wrap .section#discography .chronoArea {
+#wrap #discography .chronoArea {
   width: 400px;
   height: 65vh;
   min-height: 455px;
@@ -370,16 +474,16 @@ body {
   z-index: 2;
 }
 
-#wrap .section#discography .chronoArea.while {
+#wrap #discography .chronoArea.while {
   position: fixed;
 }
 
-#wrap .section#discography .chronoArea.lower {
+#wrap #discography .chronoArea.lower {
   position: absolute;
   top: calc(50vh + 1000vw);
 }
 
-#wrap .section#discography .chronoArea .sectionTitle {
+#wrap #discography .chronoArea .sectionTitle {
   background-color: var(--dark-color);
   color: #fff;
   margin: 0;
@@ -389,14 +493,14 @@ body {
   min-height: 35px;
 }
 
-#wrap .section#discography .chronoArea #chronology {
+#wrap #discography .chronoArea #chronology {
   height: 60vh;
   min-height: 420px;
   width: 360px;
   margin: 0 auto;
 }
 
-#wrap .section#discography .chronoArea #chronology::before {
+#wrap #discography .chronoArea #chronology::before {
   content: '';
   display: block;
   width: 1px;
@@ -410,7 +514,7 @@ body {
           transform: translate(-50%, -50%);
 }
 
-#wrap .section#discography .chronoArea #chronology li {
+#wrap #discography .chronoArea #chronology li {
   height: calc(100% / 11);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -423,11 +527,11 @@ body {
   cursor: pointer;
 }
 
-#wrap .section#discography .chronoArea #chronology li span {
+#wrap #discography .chronoArea #chronology li span {
   margin: 0 10px;
 }
 
-#wrap .section#discography .chronoArea #chronology li span.circle {
+#wrap #discography .chronoArea #chronology li span.circle {
   display: block;
   width: 20px;
   height: 20px;
@@ -442,27 +546,27 @@ body {
           transform: translateY(-50%);
 }
 
-#wrap .section#discography .chronoArea #chronology li span.release {
+#wrap #discography .chronoArea #chronology li span.release {
   position: relative;
   z-index: 2;
 }
 
-#wrap .section#discography .chronoArea #chronology li span.a_title {
+#wrap #discography .chronoArea #chronology li span.a_title {
   font-weight: bold;
 }
 
-#wrap .section#discography .chronoArea #chronology li:hover .circle, #wrap .section#discography .chronoArea #chronology li.on .circle {
+#wrap #discography .chronoArea #chronology li:hover .circle, #wrap #discography .chronoArea #chronology li.on .circle {
   width: 80px;
   height: 25px;
 }
 
-#wrap .section#discography .chronoArea #chronology li:hover .release, #wrap .section#discography .chronoArea #chronology li.on .release {
+#wrap #discography .chronoArea #chronology li:hover .release, #wrap #discography .chronoArea #chronology li.on .release {
   color: #fff;
   -webkit-transition-delay: 0.2s;
           transition-delay: 0.2s;
 }
 
-#wrap .section#discography #discBgs {
+#wrap #discography #discBgs {
   width: 1100%;
   height: 100vh;
   display: -webkit-box;
@@ -474,25 +578,25 @@ body {
   z-index: 1;
 }
 
-#wrap .section#discography #discBgs.upper {
+#wrap #discography #discBgs.upper {
   position: absolute;
   top: 0;
   left: 0;
 }
 
-#wrap .section#discography #discBgs.while {
+#wrap #discography #discBgs.while {
   position: fixed;
   top: 0;
   left: 0;
 }
 
-#wrap .section#discography #discBgs.lower {
+#wrap #discography #discBgs.lower {
   position: absolute;
   top: 1000vw;
   left: 0;
 }
 
-#wrap .section#discography #discBgs .discBg {
+#wrap #discography #discBgs .discBg {
   width: 100%;
   height: 100vh;
   background-position: center center;
@@ -503,7 +607,7 @@ body {
   transition: 0.2s;
 }
 
-#wrap .section#discography #discBgs .discBg img {
+#wrap #discography #discBgs .discBg img {
   position: absolute;
   width: 300px;
   height: 300px;
@@ -511,158 +615,54 @@ body {
   right: 250px;
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(1) {
+#wrap #discography #discBgs .discBg:nth-child(1) {
   background-image: url(/images/bg1.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(2) {
+#wrap #discography #discBgs .discBg:nth-child(2) {
   background-image: url(/images/bg2.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(3) {
+#wrap #discography #discBgs .discBg:nth-child(3) {
   background-image: url(/images/bg3.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(4) {
+#wrap #discography #discBgs .discBg:nth-child(4) {
   background-color: black;
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(5) {
+#wrap #discography #discBgs .discBg:nth-child(5) {
   background-color: white;
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(6) {
+#wrap #discography #discBgs .discBg:nth-child(6) {
   background-image: url(/images/bg6.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(7) {
+#wrap #discography #discBgs .discBg:nth-child(7) {
   background-image: url(/images/bg7.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(8) {
+#wrap #discography #discBgs .discBg:nth-child(8) {
   background-image: url(/images/bg8.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(9) {
+#wrap #discography #discBgs .discBg:nth-child(9) {
   background-image: url(/images/bg9.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(10) {
+#wrap #discography #discBgs .discBg:nth-child(10) {
   background-image: url(/images/bg10.jpg);
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(11) {
+#wrap #discography #discBgs .discBg:nth-child(11) {
   background-color: transparent;
 }
 
-#wrap .section#discography #discBgs .discBg:nth-child(11) > div {
+#wrap #discography #discBgs .discBg:nth-child(11) > div {
   background-image: url(/images/albumlogo.jpg);
   background-position: center center;
   background-repeat: no-repeat;
-}
-
-#wrap .section#songs .songFrame {
-  height: 80%;
-  position: relative;
-}
-
-#wrap .section#songs .songFrame button {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-  opacity: 0.5;
-  position: absolute;
-  top: 50%;
-  -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  cursor: pointer;
-}
-
-#wrap .section#songs .songFrame button i {
-  font-size: 20px;
-}
-
-#wrap .section#songs .songFrame button.prevBtn {
-  left: -50px;
-}
-
-#wrap .section#songs .songFrame button.nextBtn {
-  right: -50px;
-}
-
-#wrap .section#songs .songFrame button.off {
-  display: none;
-}
-
-#wrap .section#songs .songFrame .songInfoArea {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-#wrap .section#songs .songFrame .songInfoArea .songInfoGroup {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-}
-
-#wrap .section#songs .songFrame .songInfoArea .songInfoGroup .songInfo .musicTitle {
-  background-color: var(--dark-color);
-  color: #fff;
-  padding: 0 20px;
-  position: relative;
-}
-
-#wrap .section#songs .songFrame .songInfoArea .songInfoGroup .songInfo .musicTitle span {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 15px solid var(--bg-color);
-  border-right: 0px solid transparent;
-  border-left: 15px solid transparent;
-}
-
-#wrap .section#songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#wrap .section#songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .videoArea {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-#wrap .section#songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .lyricArea {
-  overflow: auto;
-  background-color: #ccc;
-  height: 405px;
-  width: 380px;
-  padding: 10px 20px;
 }
 
 @media (max-width: 480px) {

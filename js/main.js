@@ -64,7 +64,6 @@ function doScroll(s_index){
 }
 scrollSect.forEach((item, index)=>{
     item.addEventListener('mousewheel',function(event){
-        
         event.preventDefault();
         let delta = 0;
         if(!event) event = window.event;
@@ -77,13 +76,19 @@ scrollSect.forEach((item, index)=>{
         let moveTop = window.scrollY;
         let sectSelector = scrollSect[index];
         if(delta < 0){
-            if(sectSelector !== lastSectIndex){
+            if(index===1) {
+                console.log(window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top)
+            }
+            else if(sectSelector !== lastSectIndex){
                 try{
                     moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top
                 }catch(e){}
             }
         }else{
-            if(sectSelector !== 0){
+            if(index===1) {
+                console.log(window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top)
+            }
+            else if(sectSelector !== 0){
                 try{
                     moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top
                 }catch(e){}
