@@ -27,7 +27,7 @@ function displayData(datas){
                         <iframe width="720" height="405" src="https://www.youtube.com/embed/${data.url.split('=')[1]}" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                     <div class="lyricArea">
-                        <p>
+                        <p class="lyric">
                             ${processFile(data.lyric)}
                         </p>
                     </div>
@@ -44,15 +44,38 @@ loadData()
 })
 
 // 스크롤 이벤트
-// window.addEventListener('load',function(){
-// })
 let headerNav = document.querySelector('.headerNav');
 let scrollSect = document.querySelectorAll('.section');
-let lyricArea = document.querySelectorAll('.lyricArea')
+let horizSect = document.querySelectorAll('.discBg');
+let currentHS;
 const lastSectIndex = scrollSect.length - 1;
 let currentScrollIndex = 0;
+let albumLi = document.querySelectorAll('#chronology>li');
+function moveHS(secNo){
+    albumLi.forEach(element=>{
+        element.classList.remove('on');
+    })
+    albumLi[secNo].classList.add('on')
+    horizSect.forEach(item => {
+        item.style.transform = `translate(-${100*secNo}%,0%)`;
+    })
+}
+albumLi.forEach((element, index, array) => {
+    element.addEventListener('click',()=>{
+        currentHS = index;
+        moveHS(currentHS);
+    })
+});
 Array.from(headerNav.children, (navLi, index)=>{
-    navLi.addEventListener('click',()=>doScroll(index) )
+    navLi.addEventListener('click',()=>{
+        if(index===1){
+            currentHS = 0;
+            moveHS(currentHS);
+            doScroll(index);
+        }else{
+            doScroll(index);
+        }
+    })
 })
 function doScroll(s_index){
     s_index = s_index < 0 ? 0 : s_index;
@@ -75,20 +98,45 @@ scrollSect.forEach((item, index)=>{
         }
         let moveTop = window.scrollY;
         let sectSelector = scrollSect[index];
+        // 휠을 아래로
         if(delta < 0){
-            if(index===1) {
-                console.log(window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top)
+            if(index===1){
+                if(currentHS !== horizSect.length - 1){                  
+                    moveHS(currentHS+1);
+                    currentHS += 1;
+                }else{
+                    try{
+                        moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top
+                    }catch(e){}
+                }
             }
             else if(sectSelector !== lastSectIndex){
+                if(index<1){
+                    currentHS = 0;
+                    moveHS(currentHS);
+                }
                 try{
                     moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top
                 }catch(e){}
-            }
-        }else{
-            if(index===1) {
-                console.log(window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top)
+            }else return null;
+        }
+        // 휠을 위로
+        else{
+            if(index===1){
+                if(currentHS !== 0){
+                    moveHS(currentHS-1)
+                    currentHS -= 1;
+                }else{
+                    try{
+                        moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top
+                    }catch(e){}
+                }
             }
             else if(sectSelector !== 0){
+                if(index>1){
+                    currentHS = 10;
+                    moveHS(currentHS);
+                }
                 try{
                     moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top
                 }catch(e){}
@@ -97,11 +145,6 @@ scrollSect.forEach((item, index)=>{
         window.scrollTo({top:moveTop, left:0, behavior:'smooth'})
     })
 })
-lyricArea.forEach(element => {
-    element.addEventListener('mouseover',function(event){
-        $('#songs').unbind()
-    })
-});
 
 // EPIK HIGH IS HERE 섹션 버튼 이벤트
 let prev = document.querySelector('.prevBtn');
@@ -162,64 +205,4 @@ openNav.addEventListener('mouseover',()=>{
         $('header').removeClass('off');
         $('header').mouseleave(()=>$('header').addClass('off'))
     }else return null;
-})
-
-// 디스코그래피 섹션
-let discography = document.querySelector('#discography');
-let albumLi = document.querySelectorAll('#chronology>li');
-let discBgs = document.querySelectorAll('.discBg');
-let chronoArea = document.querySelector('.chronoArea');
-albumLi.forEach((element, index, array) => {
-    element.addEventListener('click',()=>{
-        array.forEach(li => li.classList.remove('on'))
-        element.classList.add('on')
-        discBgs.forEach(bg => {
-            bg.style.transform = `translate(${index * -100}%,0%)`
-        })
-    })
-});
-
-let sect_h = $(window).outerHeight();
-let sect_w = $(window).outerWidth();
-let bgArea = document.querySelector('#discBgs');
-// if(sect_sct == 0) {
-//     albumLi[0].classList.add('on')
-// }
-document.addEventListener('scroll',function(){
-    let sct = document.documentElement.scrollTop
-    let sect_sct = sct - sect_h;
-    console.log(sect_sct, sect_w*10)
-    if(sect_sct>=0 && sect_sct<sect_w*10){
-        bgArea.classList.remove('upper');
-        bgArea.classList.remove('lower');
-        bgArea.classList.add('while');
-        chronoArea.classList.remove('upper');
-        chronoArea.classList.remove('lower');
-        chronoArea.classList.add('while');
-        discBgs.forEach((element, index)=>{
-            let xNum = -index;
-            let newX = xNum + sect_sct;
-            element.style.transform = `translateX(-${newX}px)`
-        })
-        albumLi.forEach((element, index)=>{
-            if(sect_sct>=index*sect_w && sect_sct<(index+1)*sect_w){
-                albumLi.forEach(eachofLis=>{
-                    eachofLis.classList.remove('on')
-                })
-                element.classList.add('on')
-            }    
-        })
-    }
-    else if (sect_sct < 0) {
-        bgArea.classList.remove('while');
-        bgArea.classList.add('upper');
-        chronoArea.classList.remove('while');
-        chronoArea.classList.add('upper');
-    }
-    else if (sect_sct >= sect_w*10) {
-        bgArea.classList.remove('while');
-        bgArea.classList.add('lower');
-        chronoArea.classList.remove('while');
-        chronoArea.classList.add('lower');
-    };
 })
