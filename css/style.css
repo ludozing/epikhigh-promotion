@@ -60,6 +60,18 @@ body { font-size: 14px; color: #333; line-height: 1.5; }
 
 #wrap #toTheTop { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 80px; height: 80px; border-radius: 40px; background-color: var(--main-color); position: fixed; bottom: 40px; right: 100px; font-size: 20px; opacity: 0.8; cursor: pointer; z-index: 10; }
 
+@-webkit-keyframes upNdown { 0% { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+  50% { -webkit-transform: translate(0, -50%); transform: translate(0, -50%); }
+  100% { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
+
+@keyframes upNdown { 0% { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
+  50% { -webkit-transform: translate(0, -50%); transform: translate(0, -50%); }
+  100% { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
+
+#wrap .scrollDown { height: 100px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; bottom: 20px; left: 50%; z-index: 10; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+
+#wrap .scrollDown span { -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-name: upNdown; animation-name: upNdown; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; }
+
 #wrap header { width: 100vw; height: 120px; position: fixed; top: 0; left: 0; z-index: 10; -webkit-transition: 0.2s; transition: 0.2s; background-color: var(--bg-color); }
 
 #wrap header > div { height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }

@@ -12,87 +12,6 @@ body {
     line-height: 1.5;
 }
 // @media (min-width: 481px){
-    #viewFrame {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        position: relative;
-        .albums {
-            transition: 1s;
-            img {
-                width: 500px;
-            }
-            &.falling {
-                width: 100vw;
-                height: 500px;
-                position: absolute;
-                top: -500px;
-                left: 50%;
-                transform: translateX(-50%);
-                img {
-                    position: absolute;
-                    left: 50%;
-                    bottom: 50vh;
-                    transform: translate(-50%, -50%);
-                }
-            }
-            &.fall {
-                height: calc(100vh + 1000px);
-            }
-        }
-        #album1 { background-color: #6c6b78; z-index: 1; }
-        #album2 { background-color: #b8a072; z-index: 2; }
-        #album3 { background-color: #fefcff; z-index: 3; }
-        #album4 { background-color: #040001; z-index: 4; }
-        #album5 { background-color: #ffffff; z-index: 5; }
-        #album6 { background-color: #fa959f; z-index: 6; }
-        #album7 { background-color: #00fd00; z-index: 7; }
-        #album8 { background-color: #acc1b2; z-index: 8; }
-        #album9 { background-color: #cecece; z-index: 9; }
-        #album10 { background-color: #2f2f2f; z-index: 10; }
-        #album11 {
-            position: absolute;
-            top: 0;
-            left: 0;
-            background-color: #c7d7d4;
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            z-index: 11;
-            transition: 2s;
-            transition-delay: 1s;
-            &.on {
-                opacity: 1;
-            }
-            >div {
-                width: 500px;
-                height: 500px;
-                position: relative;
-                .albumLogo {
-                    width: 400px;
-                    position: absolute;
-                    top: -150px;
-                    left: 50%;
-                    transform: translate(-50%, 0);
-                }
-                a {
-                    position: absolute;
-                    bottom: -100px;
-                    left: 50%;
-                    transform: translate(-50%, 0);
-                    font-size: 20px;
-                }
-            }
-            img {
-                max-width: 500px;
-                max-height: 500px;
-            }
-        }
-    }
     #wrap {
         background-color: var(--bg-color);
         min-height: 100vh;
@@ -122,6 +41,33 @@ body {
             opacity: 0.8;
             cursor: pointer;
             z-index: 10;
+        }
+        @keyframes upNdown {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(0, -50%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        .scrollDown {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            z-index: 10;
+            transform: translateX(-50%);
+            span {
+                animation-duration: 2s;
+                animation-name: upNdown;
+                animation-iteration-count: infinite;
+            }
         }
         header {
             width: 100vw;
