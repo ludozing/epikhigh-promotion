@@ -8,50 +8,6 @@ li { list-style: none; }
 
 body { font-size: 14px; color: #333; line-height: 1.5; }
 
-#viewFrame { width: 100vw; height: 100vh; overflow: hidden; position: relative; }
-
-#viewFrame .albums { -webkit-transition: 1s; transition: 1s; }
-
-#viewFrame .albums img { width: 500px; }
-
-#viewFrame .albums.falling { width: 100vw; height: 500px; position: absolute; top: -500px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
-
-#viewFrame .albums.falling img { position: absolute; left: 50%; bottom: 50vh; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
-
-#viewFrame .albums.fall { height: calc(100vh + 1000px); }
-
-#viewFrame #album1 { background-color: #6c6b78; z-index: 1; }
-
-#viewFrame #album2 { background-color: #b8a072; z-index: 2; }
-
-#viewFrame #album3 { background-color: #fefcff; z-index: 3; }
-
-#viewFrame #album4 { background-color: #040001; z-index: 4; }
-
-#viewFrame #album5 { background-color: #ffffff; z-index: 5; }
-
-#viewFrame #album6 { background-color: #fa959f; z-index: 6; }
-
-#viewFrame #album7 { background-color: #00fd00; z-index: 7; }
-
-#viewFrame #album8 { background-color: #acc1b2; z-index: 8; }
-
-#viewFrame #album9 { background-color: #cecece; z-index: 9; }
-
-#viewFrame #album10 { background-color: #2f2f2f; z-index: 10; }
-
-#viewFrame #album11 { position: absolute; top: 0; left: 0; background-color: #c7d7d4; width: 100vw; height: 100vh; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; opacity: 0; z-index: 11; -webkit-transition: 2s; transition: 2s; -webkit-transition-delay: 1s; transition-delay: 1s; }
-
-#viewFrame #album11.on { opacity: 1; }
-
-#viewFrame #album11 > div { width: 500px; height: 500px; position: relative; }
-
-#viewFrame #album11 > div .albumLogo { width: 400px; position: absolute; top: -150px; left: 50%; -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); }
-
-#viewFrame #album11 > div a { position: absolute; bottom: -100px; left: 50%; -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); font-size: 20px; }
-
-#viewFrame #album11 img { max-width: 500px; max-height: 500px; }
-
 #wrap { background-color: var(--bg-color); min-height: 100vh; }
 
 #wrap #openNav { height: 100px; width: 100%; position: fixed; z-index: 9; }
@@ -59,6 +15,8 @@ body { font-size: 14px; color: #333; line-height: 1.5; }
 #wrap .innerCon { max-width: 1100px; min-width: 1100px; margin: 0 auto; }
 
 #wrap #toTheTop { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; width: 80px; height: 80px; border-radius: 40px; background-color: var(--main-color); position: fixed; bottom: 40px; right: 100px; font-size: 20px; opacity: 0.8; cursor: pointer; z-index: 10; }
+
+#wrap #toTheTop i { position: absolute; top: 4px; left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); font-size: 30px; color: var(--dark-color); }
 
 @-webkit-keyframes upNdown { 0% { -webkit-transform: translate(0, 0); transform: translate(0, 0); }
   50% { -webkit-transform: translate(0, -50%); transform: translate(0, -50%); }
@@ -68,17 +26,21 @@ body { font-size: 14px; color: #333; line-height: 1.5; }
   50% { -webkit-transform: translate(0, -50%); transform: translate(0, -50%); }
   100% { -webkit-transform: translate(0, 0); transform: translate(0, 0); } }
 
-#wrap .scrollDown { height: 100px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; bottom: 20px; left: 50%; z-index: 10; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
+#wrap .scrollDown { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: absolute; bottom: 20px; left: 50%; z-index: 10; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
 
 #wrap .scrollDown span { -webkit-animation-duration: 2s; animation-duration: 2s; -webkit-animation-name: upNdown; animation-name: upNdown; -webkit-animation-iteration-count: infinite; animation-iteration-count: infinite; }
 
 #wrap header { width: 100vw; height: 120px; position: fixed; top: 0; left: 0; z-index: 10; -webkit-transition: 0.2s; transition: 0.2s; background-color: var(--bg-color); }
 
-#wrap header > div { height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+#wrap header .innerCon { height: 100%; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
-#wrap header > div .headerNav { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+#wrap header .innerCon .mainLogo { height: 60%; }
 
-#wrap header > div .headerNav li { padding: 0 30px; font-size: 20px; }
+#wrap header .innerCon .mainLogo a img { height: 100%; }
+
+#wrap header .innerCon .headerNav { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+#wrap header .innerCon .headerNav li { padding: 0 30px; font-size: 20px; }
 
 #wrap header.off { top: -120px; }
 
@@ -88,7 +50,7 @@ body { font-size: 14px; color: #333; line-height: 1.5; }
 
 #wrap .section .anchor { position: absolute; top: 0; left: 0; }
 
-#wrap .section .sectionTitle { font-size: 30px; margin-bottom: 40px; }
+#wrap .section .sectionTitle { font-size: 30px; }
 
 #wrap #epikhighInfo > div { padding: 0; }
 
@@ -192,6 +154,8 @@ body { font-size: 14px; color: #333; line-height: 1.5; }
 
 #wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .videoArea { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
 
+#wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .videoArea iframe { width: 720px; height: 405px; }
+
 #wrap #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .lyricArea { overflow: auto; background-color: #ccc; height: 405px; width: 380px; padding: 10px 20px; }
 
 #wrap #shop ul { width: 400px; height: 80%; margin: 0 auto; }
@@ -208,6 +172,49 @@ body { font-size: 14px; color: #333; line-height: 1.5; }
 
 #wrap #shop ul li.yt a { -webkit-box-pack: end; -ms-flex-pack: end; justify-content: flex-end; }
 
-@media (max-width: 480px) { .albums { width: 100vw; }
-  .albums.falling { left: 50%; -webkit-transform: translateX(-50%); transform: translateX(-50%); }
-  .albums.falling img { bottom: 0; -webkit-transform: translate(-50%, 0); transform: translate(-50%, 0); } }
+@media (min-width: 1025px) { .mobile { display: none; }
+  .sectionTitle { margin-bottom: 40px; } }
+
+@media (max-width: 480px) { #wrap #openNav { display: none; }
+  #wrap #toTheTop { background-color: transparent; width: inherit; height: inherit; bottom: 40px; right: 40px; font-size: 14px; }
+  #wrap #toTheTop i { top: -20px; color: #333; font-size: inherit; }
+  #wrap .innerCon { max-width: 480px; min-width: 0; }
+  #wrap .scrollDown { display: none; }
+  #wrap header { overflow: hidden; -webkit-transition: 0.5s; transition: 0.5s; }
+  #wrap header .innerCon { display: block; position: relative; }
+  #wrap header .mainLogo { position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+  #wrap header .navArea { position: fixed; width: 80vw; height: 100vh; background-color: #fff; top: 0; right: -80vw; z-index: 30; -webkit-transition: 0.5s; transition: 0.5s; }
+  #wrap header .navArea.on { right: 0; }
+  #wrap header .navArea .navTitle { text-align: center; padding: 40px 0; }
+  #wrap header .navArea .headerNav { width: 70%; margin: 0 auto; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+  #wrap header .navArea .headerNav li { margin: 12px 0; }
+  #wrap header .toggle { width: 40px; height: 40px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; -webkit-box-align: center; -ms-flex-align: center; align-items: center; position: fixed; top: 60px; right: 0; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); -webkit-transition: 0.5s; transition: 0.5s; cursor: pointer; }
+  #wrap header .toggle span { display: block; width: 80%; height: 3px; background-color: var(--dark-color); -webkit-transition: 0.5s; transition: 0.5s; }
+  #wrap header .toggle.on { right: 80vw; }
+  #wrap header .toggle.on span:nth-child(1) { -webkit-transform: skewY(45deg) translateY(10px); transform: skewY(45deg) translateY(10px); }
+  #wrap header .toggle.on span:nth-child(2) { width: 0; }
+  #wrap header .toggle.on span:nth-child(3) { -webkit-transform: skewY(-45deg) translateY(-10px); transform: skewY(-45deg) translateY(-10px); }
+  #wrap #content .section:not(#epikhighInfo) { padding: 0; }
+  #wrap #content .section .sectionTitle { text-align: center; padding: 20px; }
+  #wrap #content #epikhighInfo .infoArea { height: 80%; }
+  #wrap #content #epikhighInfo .infoArea .halfArea:nth-child(1) { width: 100%; }
+  #wrap #content #epikhighInfo .infoArea .halfArea:nth-child(1) table { margin: 0 auto; }
+  #wrap #content #epikhighInfo .infoArea .halfArea:nth-child(1) table tbody tr:first-child { background-image: url(/images/epikhigh1.jpg); background-position: center 30%; background-size: cover; background-repeat: no-repeat; height: 50%; }
+  #wrap #content #epikhighInfo .infoArea .halfArea:nth-child(1) table tbody tr:first-child img { display: none; }
+  #wrap #content #epikhighInfo .infoArea .halfArea:nth-child(2) { display: none; }
+  #wrap #content #discography .sectionTitle { padding: 0; }
+  #wrap #content #discography .chronoArea { left: 50vw; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); width: 90vw; }
+  #wrap #content #discography .chronoArea #chronology { width: 85vw; }
+  #wrap #content #discography .chronoArea #chronology::before { left: 30px; }
+  #wrap #content #discography .chronoArea #chronology li .a_title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  #wrap #content #discography #discBgs img { display: none; }
+  #wrap #content #songs .sectionTitle { line-height: 120px; padding: 0; }
+  #wrap #content #songs .songFrame { height: inherit; }
+  #wrap #content #songs .songFrame > button { display: none; }
+  #wrap #content #songs .songFrame .songInfoArea .songInfoGroup { top: 0; left: 0; -webkit-transform: translateY(0); transform: translateY(0); }
+  #wrap #content #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr { display: block; }
+  #wrap #content #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .videoArea iframe { width: 100vw; height: calc(100vw * 405 / 720); }
+  #wrap #content #songs .songFrame .songInfoArea .songInfoGroup .songInfo .vidNlyr .lyricArea { width: 100vw; height: inherit; }
+  #wrap #content #shop .sectionTitle { line-height: 120px; padding: 0; }
+  #wrap #content #shop .innerCon { position: relative; }
+  #wrap #content #shop .innerCon ul { width: 100vw; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); } }

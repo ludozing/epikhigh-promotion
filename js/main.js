@@ -24,7 +24,7 @@ function displayData(datas){
                 <h2 class="musicTitle">${data.title}<span></span></h2>
                 <div class="vidNlyr">
                     <div class="videoArea" id="data${data.no}">
-                        <iframe width="720" height="405" src="https://www.youtube.com/embed/${data.url.split('=')[1]}" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/${data.url.split('=')[1]}" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                     </div>
                     <div class="lyricArea">
                         <p class="lyric">
@@ -47,7 +47,7 @@ loadData()
 let headerNav = document.querySelector('.headerNav');
 let scrollSect = document.querySelectorAll('.section');
 let horizSect = document.querySelectorAll('.discBg');
-let currentHS;
+let currentHS = 0;
 const lastSectIndex = scrollSect.length - 1;
 let currentScrollIndex = 0;
 let albumLi = document.querySelectorAll('#chronology>li');
@@ -55,6 +55,7 @@ function moveHS(secNo){
     albumLi.forEach(element=>{
         element.classList.remove('on');
     })
+    console.log(albumLi[secNo])
     albumLi[secNo].classList.add('on')
     horizSect.forEach(item => {
         item.style.transform = `translate(-${100*secNo}%,0%)`;
@@ -100,46 +101,56 @@ scrollSect.forEach((item, index)=>{
         let sectSelector = scrollSect[index];
         // 휠을 아래로
         if(delta < 0){
-            if(index===1){
-                if(currentHS !== horizSect.length - 1){                  
-                    moveHS(currentHS+1);
-                    currentHS += 1;
-                }else{
+            if($(window).width()>=1025){
+                if(index===1){
+                    if(currentHS !== horizSect.length - 1){                  
+                        moveHS(currentHS+1);
+                        currentHS += 1;
+                    }else{
+                        try{
+                            moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top
+                        }catch(e){}
+                    }
+                }
+                else if(sectSelector !== lastSectIndex){
+                    if(index<1){
+                        currentHS = 0;
+                        moveHS(currentHS);
+                    }
                     try{
                         moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top
                     }catch(e){}
-                }
+                }else return null;
             }
-            else if(sectSelector !== lastSectIndex){
-                if(index<1){
-                    currentHS = 0;
-                    moveHS(currentHS);
-                }
-                try{
-                    moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top
-                }catch(e){}
-            }else return null;
+            else {
+                try{moveTop = window.pageYOffset + sectSelector.nextElementSibling.getBoundingClientRect().top}catch(e){}
+            }
         }
         // 휠을 위로
         else{
-            if(index===1){
-                if(currentHS !== 0){
-                    moveHS(currentHS-1)
-                    currentHS -= 1;
-                }else{
+            if($(window).width()>=1025){
+                if(index===1){
+                    if(currentHS !== 0){
+                        moveHS(currentHS-1)
+                        currentHS -= 1;
+                    }else{
+                        try{
+                            moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top
+                        }catch(e){}
+                    }
+                }
+                else if(sectSelector !== 0){
+                    if(index>1){
+                        currentHS = 10;
+                        moveHS(currentHS);
+                    }
                     try{
                         moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top
                     }catch(e){}
                 }
             }
-            else if(sectSelector !== 0){
-                if(index>1){
-                    currentHS = 10;
-                    moveHS(currentHS);
-                }
-                try{
-                    moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top
-                }catch(e){}
+            else {
+                try{moveTop = window.pageYOffset + sectSelector.previousElementSibling.getBoundingClientRect().top}catch(e){}
             }
         }
         window.scrollTo({top:moveTop, left:0, behavior:'smooth'})
@@ -181,7 +192,6 @@ setInterval(function(){
         didScroll = false;
     }
 }, 250);
-
 function hasScrolled(){
     let st = $(this).scrollTop();
 
@@ -191,12 +201,22 @@ function hasScrolled(){
     if(st > lastScrollTop && st > navbarHeight){
         $('header').addClass('off');
     } else {
-        if(st + $(window).height() < $(document).height()){
-            $('header').removeClass('off');
+        if($(window).width()<=480){
+            if(currentHS===0){
+                $('header').removeClass('off');
+            }
+        }else{
+            if(st + $(window).height() < $(document).height()){
+                $('header').removeClass('off');
+            }
         }
     }
     lastScrollTop = st;
 }
+
+document.querySelector('#toTheTop').addEventListener('click',function(){
+    currentHS = 0;
+})
 
 // 상단에 마우스오버시 헤더 출력
 let openNav = document.querySelector('#openNav');
@@ -205,4 +225,11 @@ openNav.addEventListener('mouseover',()=>{
         $('header').removeClass('off');
         $('header').mouseleave(()=>$('header').addClass('off'))
     }else return null;
+})
+
+let toggle = document.querySelector('.toggle')
+let navArea = document.querySelector('.navArea')
+toggle.addEventListener('click', function(){
+    toggle.classList.toggle('on')
+    navArea.classList.toggle('on')
 })
